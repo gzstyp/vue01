@@ -129,6 +129,14 @@ new Vue({
             this.editObj.gender = item.gender;
             this.editObj.phoneNum = item.phoneNum;
             this.editObj.birthday = item.birthday;*/
+
+            for(var key in item) {
+                console.log(key,":-->",item[key]);
+            }
+            /*Object.keys(item).forEach(function(key){
+                console.log(key,item[key]);
+            });*/
+
             this.editObj = {
                 name : item.name,
                 gender : item.gender,
