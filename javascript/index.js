@@ -3,7 +3,7 @@
  * @创建时间 2020-05-01 18:21
  * @QQ号码 444141300
  * @官网 http://www.fwtai.com
-*/
+ */
 new Vue({
     fields : {
         name : '',
@@ -48,19 +48,19 @@ new Vue({
         }
     },
     methods : {
-        fnMessage(msg){
+        fnMessage : function(msg){
             this.$message(msg);
         },
-        fnMsgError(msg){
+        fnMsgError : function(msg){
             this.$message.error(msg);
         },
-        fnMsgSuccess(msg){
+        fnMsgSuccess : function(msg){
             this.$message({
                 message : msg,
                 type : 'success'
             });
         },
-        fnConfirm(msg,verify,cancel){
+        fnConfirm : function(msg,verify,cancel){
             this.$confirm(msg, '系统提示',{
                 confirmButtonText: '确定',
                 cancelButtonText: '取消',
@@ -77,7 +77,7 @@ new Vue({
             });
         },
         //dialog对话框右上角的关闭之前的操作
-        handleClose(done) {
+        handleClose : function(done) {
             /*有用,不要删除,this.$confirm('确认关闭?')
                 .then(_ => {
                     done();
@@ -85,7 +85,7 @@ new Vue({
             .catch(_ => {});*/
             this.dialogVisible = false;
         },
-        checkFormAdd(){
+        checkFormAdd : function(){
             if(!this.userInfo.name){
                 this.fnMsgError('请输入姓名');
                 return;
@@ -109,7 +109,7 @@ new Vue({
             return true;
         },
         //添加
-        addUser (){
+        addUser : function(){
             var form = this.checkFormAdd();
             if(!form){
                 return;
@@ -123,7 +123,7 @@ new Vue({
             }
             this.fnMsgSuccess('添加成功');
         },
-        handleEdit(index,item){
+        handleEdit : function(index,item){
             this.userIndex = index;
             /*this.editObj.name = item.name;
             this.editObj.gender = item.gender;
@@ -137,7 +137,7 @@ new Vue({
             }
             this.dialogVisible = true;
         },
-        handleDelete(index,row){
+        handleDelete : function(index,row){
             var _this = this;
             this.fnConfirm('删除之后是无法恢复,确认要删除吗?',function(){
                 _this.tableData.splice(index,1);
@@ -146,7 +146,7 @@ new Vue({
                 _this.fnMessage('已取消操作');
             });
         },
-        checkFormEdit(){
+        checkFormEdit : function(){
             if(!this.editObj.name){
                 this.fnMsgError('请输入姓名');
                 return;
@@ -169,7 +169,7 @@ new Vue({
             }
             return true;
         },
-        submitSave(){
+        submitSave : function(){
             var form = this.checkFormEdit();
             if(!form){
                 return;
