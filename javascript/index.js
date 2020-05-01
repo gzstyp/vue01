@@ -114,13 +114,18 @@ new Vue({
             if(!form){
                 return;
             }
-            this.tableData.push(this.userInfo);
-            this.userInfo = { //清空表单
+            this.tableData.push(this.userInfo);//添加
+            /*for(var key in this.userInfo){
+                //console.info(jsonObj[key]);//取值
+                //this.userInfo[key] = '';赋值
+            }*/
+            this.userInfo = {};//清空表单,ok,某个字段如果有默认值，那么这种暴力清除的方式也是不可以用的
+            /*this.userInfo = { //清空表单
                 name : '',
                 gender : '',
                 phoneNum : '',
                 birthday : ''
-            }
+            }*/
             this.fnMsgSuccess('添加成功');
         },
         handleEdit : function(index,item){
@@ -130,18 +135,16 @@ new Vue({
             this.editObj.phoneNum = item.phoneNum;
             this.editObj.birthday = item.birthday;*/
 
-            for(var key in item) {
-                console.log(key,":-->",item[key]);
-            }
-            /*Object.keys(item).forEach(function(key){
-                console.log(key,item[key]);
-            });*/
-
-            this.editObj = {
+            /*this.editObj = {
                 name : item.name,
                 gender : item.gender,
                 phoneNum : item.phoneNum,
                 birthday : item.birthday
+            }*/
+            //赋值到表单
+            var editJson = this.editObj;
+            for(var key in item) {
+                editJson[key] = item[key];
             }
             this.dialogVisible = true;
         },
@@ -182,11 +185,10 @@ new Vue({
             if(!form){
                 return;
             }
-            var _this = this;
             //this.tableData[this.userIndex] = this.editObj;//这种方式不支持响应式的更新数据,没有及时渲染到页面上,没有实现数据双向绑定,是不是响应性的!!!
             //官方示例
             //Vue.set(vm.items, indexOfItem, newValue)//第1个参数是表格的数据,第2个是修改列表的索引值,第3个是编辑后的数据
-            Vue.set(_this.tableData,this.userIndex,this.editObj);//第1个参数是表格的数据,第2个是修改列表的索引值,第3个是编辑后的数据,ok
+            Vue.set(this.tableData,this.userIndex,this.editObj);//第1个参数是表格的数据,第2个是修改列表的索引值,第3个是编辑后的数据,ok
             this.dialogVisible = false;
             this.fnMsgSuccess('操作成功');
         }
