@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <menu name="viewport" content="width=device-width,initial-scale=1.0"/>
     <title>vue + element-ui增删改查</title>
-    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-    <link rel="stylesheet" href="style/index.css">
-
+    <link rel="stylesheet" href="styles/element-ui/element-ui.css">
+    <link rel="stylesheet" href="styles/element-ui/page.index.css">
 </head>
 <body>
-
     <div id="app">
         <div class="head">
             <el-row :gutter="20" :model="userInfo"><!--model="userInfo" 就是实体啊-->
@@ -101,7 +99,7 @@
             </el-table>
         </div>
 
-        <el-dialog
+        <el-dialog style="display:none"
             title="添加编辑用户信息"
             :visible.sync="dialogVisible"
             width="30%"
@@ -141,10 +139,10 @@
           </span>
         </el-dialog>
     </div>
-    <!-- import Vue before Element -->
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
-    <!-- import JavaScript -->
-    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-<script src="javascript/index.js"></script>
+<!-- import Vue before Element -->
+<script src="javascript/element-ui/vue.min.js"></script>
+<!-- import JavaScript -->
+<script src="javascript/element-ui/index.js"></script>
+<script src="javascript/element-ui/page.index.js"></script>
 </body>
 </html>
