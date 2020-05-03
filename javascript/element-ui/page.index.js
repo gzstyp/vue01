@@ -20,12 +20,14 @@ new Vue({
                 phoneNum : '',
                 birthday : ''
             },
-            tableData : [{//表格的数据
-                name : '田卓智',
-                gender : '1',
-                phoneNum : '13765121695',
-                birthday : '2016-08-06'
-            }],
+            tableData : [//表格的数据
+                {
+                    name : '引路者',
+                    gender : '1',
+                    phoneNum : '13765121695',
+                    birthday : '2016-08-06'
+                }
+            ],
             options: [{
                 value : '',
                 label : '选择'
