@@ -21,10 +21,10 @@ new Vue({
                 birthday : ''
             },
             tableData : [{//表格的数据
-                name : '王小虎',
-                gender : '男',
+                name : '田卓智',
+                gender : '1',
                 phoneNum : '13765121695',
-                birthday : '2016-05-02'
+                birthday : '2016-08-06'
             }],
             options: [{
                 value : '',
