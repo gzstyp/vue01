@@ -9,8 +9,6 @@ class Complier{
         //判断el是否是一个元素
         this.el = this.isElementNode(el) ? el : document.querySelector(el);
         var fragment = this.nodeFragment(this.el);
-        //console.info(this.el);
-        //console.info(fragment);
         //把节点中的内容进行替换
 
         //编译模板
