@@ -13,6 +13,9 @@ class Complier{
         //console.info(fragment);
         //把节点中的内容进行替换
 
+        //编译模板
+        this.compile(fragment);
+
         //最后把替换好的内容塞到页面中
         this.el.appendChild(fragment);
     }
@@ -28,29 +31,34 @@ class Complier{
             fragment.appendChild(firstChild);
         }
         return fragment;
+    }
+    //核心的编译方法
+    compile(node){//编译内存中的dom节点
+        let childNodes = node.childNodes;
+        [...childNodes].forEach(child => {
+            if(this.isElementNode(child)){
+                this.compileElement(child)
+            }else{
+                this.compileText(child);
+            }
+        });
+    }
+    //编译dom元素,即包含v-model的元素
+    compileElement(node){
+        let attributes = node.attributes;//得到的是数组
+        [...attributes].forEach(attr => {
+            let {name,value} = attr;
+            if(this.isDirective(name)){
+                console.info(node);
+            }
+        });
+    }
+    //编译的静态的文本,即包含{{}}的文本
+    compileText(node){
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
+    isDirective(attrName){
+        return attrName.startsWith('v-');
     }
 };
 class Vue{
