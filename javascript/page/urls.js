@@ -7,5 +7,7 @@
 var urls = {
     user : {
         login : '',
+        listData : '',
+        edit : ''
     }
 };

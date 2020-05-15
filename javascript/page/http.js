@@ -6,11 +6,19 @@
 */
 //导入axios
 import axios from 'axios';
+axios.defaults.baseURL = "http://api.fwt.cloud";
+axios.defaults.timeout = 10000;
+axios.defaults.withCredentials = true;
 axios.get(url,{
     params : {
 
     }
 }).then(result =>{
+
+}).catch(error =>{
+
+});
+axios.post(url,data).then(result =>{
 
 }).catch(error =>{
 
